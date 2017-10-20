@@ -29,7 +29,9 @@ function initialize() {
     //     // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
     //     // window.plugins.OneSignal.syncHashedEmail(userEmail);
     // }, false);
-
+    var iosSettings = {};
+    iosSettings["kOSSettingsKeyAutoPrompt"] = true;
+    iosSettings["kOSSettingsKeyInAppLaunchURL"] = false;
     window.plugins.OneSignal
           .startInit("a57b93b0-3c10-4eae-9edf-bf9d06b32a9c")
           .handleNotificationReceived(function(jsonData) {
