@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "592402184263",
+    "firebase_url": "https://ffh-app-1493312078774.firebaseio.com",
+    "project_id": "ffh-app-1493312078774",
+    "storage_bucket": "ffh-app-1493312078774.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592402184263:android:d05a6b30f7f79ea1",
+        "android_client_info": {
+          "package_name": "com.thrivepop.ffhapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592402184263-aiok4r21qe8mg3a1hnhki8kjnmaoadem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClgPZBIY5uZMcMs3Xci373XiGAdl8bJPc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
