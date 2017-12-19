@@ -49,7 +49,12 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.7.1.min.js"></script>
-
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            StatusBar.hide();
+        }
+    </script>
     <style>
         /* Optional: Makes the sample page fill the window. */
         html, body {
@@ -102,7 +107,20 @@
         <li><a href="notifications.html" class="waves-effect"><i class="ion-android-notifications"></i>Notifications</a></li>
         <li><a href="website-links.html" class="waves-effect"><i class="ion-link"></i>Website Links</a></li>
         <li><a href="privacy-policy.html" class="waves-effect"><i class="ion-information-circled"></i>Privacy Policy</a></li>
-        <li id="social-media-icons"><a href="https://www.facebook.com/familyfarmandhome" style="float:left"><i class="ion-social-facebook"></i></a><a href="https://twitter.com/familyfarmhome" style="float:left"><i class="ion-social-twitter"></i></a><a href="https://www.instagram.com/familyfarmandhome/" style="float:left"><i class="ion-social-instagram"></i></a><a href="https://www.linkedin.com/company/family-farm-&-home" style="float:left"><i class="ion-social-linkedin"></i></a></li>
+        <li id="social-media-icons">
+            <a href="https://www.facebook.com/familyfarmandhome" style="float:left">
+                <i class="ion-social-facebook"></i>
+            </a>
+            <a href="https://twitter.com/familyfarmhome" style="float:left">
+                <i class="ion-social-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/familyfarmandhome/" style="float:left">
+                <i class="ion-social-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/family-farm-&-home" style="float:left">
+                <i class="ion-social-linkedin"></i>
+            </a>
+        </li>
     </ul>
 </div>
 <!-- End of Main Container -->

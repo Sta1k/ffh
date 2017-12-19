@@ -35,9 +35,9 @@ function initialize() {
         var hobbiesInput = '';
         apiResponse.forEach( function ( s ) {
             if( s.type === 'Animals' ) {
-                animalsInput += '<p><input type="checkbox" name="animals" value="' + s.id + '"> <label>' + s.name + '</label></p>';
+                animalsInput += '<p><input type="checkbox" name="animals" value="' + s.id + '" id="interest_' + s.id + '"> <label for="interest_' + s.id +  '">' + s.name + '</label></p>';
             } else if( s.type === 'Interests and Hobbies' ) {
-                hobbiesInput += '<p><input type="checkbox" name="hobbies" value="' + s.id + '"> <label>' + s.name + ' </label></p>';
+                hobbiesInput += '<p><input type="checkbox" name="hobbies" value="' + s.id + '" id="interest_' + s.id + '"> <label for="interest_' + s.id +  '">' + s.name + ' </label></p>';
             }
         });
         iAnimalsDiv.innerHTML = iAnimalsDiv.innerHTML + animalsInput;

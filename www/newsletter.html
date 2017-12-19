@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js">
+
 <head>
     <meta charset="utf-8">
     <title>Shuttle - Material Design Mobile Template</title>
@@ -49,153 +50,235 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.7.1.min.js"></script>
-
-    <style>
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            StatusBar.hide();
         }
-    </style>
+    </script>
+
 </head>
 
 <body>
 
-<!-- Main Container -->
-<div id="main" class="main">
-    <!-- Toolbar -->
-    <div id="toolbar" class="primary-color z-depth-1">
-        <div class="open-left" id="open-left" data-activates="slide-out-left">
-            <i class="ion-android-menu"></i>
+    <!-- Main Container -->
+    <div id="main" class="main">
+        <!-- Toolbar -->
+        <div id="toolbar" class="primary-color">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu"></i>
+            </div>
+            <h1 class="title">
+                <img src="img/logo-thumb.png">
+            </h1>
         </div>
-        <h1 class="title"><img src="img/logo-thumb.png"></h1>
-    </div>
-    <!-- End of Toolbar -->
+        <!-- End of Toolbar -->
 
-    <!-- Page Contents -->
-    <div class="page animated fadeinup">
-        <div id="newsletterDiv" class="p-20">
-            <form id="subscriptionForm">
-                <div class="your_information">
-                    <h3>Your Information</h3>
-                    <p><b>Please fill out the information below. Fields marked with an asterisk* are required.</b></p>
-                    <p>Family Farm & Home will never share, rent or sell your personal information.</p>
-                    <div class="input-field">
-                        <input id="email" type="text" class="validate" placeholder="youreamail@gmail.com">
-                    </div>
-                    <div class="input-field">
-                        <input id="first_name" type="text" class="validate" placeholder="First Name">
-                    </div>
-                    <div class="input-field">
-                        <input id="last_name" type="text" class="validate" placeholder="Last Name">
-                    </div>
-                    <div class="input-field">
-                        <input id="zip_code" type="text" class="validate" placeholder="Zip">
-                    </div>
-                    <div class="input-field">
-                        <select id="store_location" class="browser-default">
-                            <option value="0" selected="selected">Store Location</option>*
-                        </select>
-                    </div>
-                    <div class="input-field custom-check">
+        <!-- Page Contents -->
+        <div class="page animated fadeinup">
+            <div id="newsletterDiv" class="white-box">
+                <form id="subscriptionForm">
+                    <div class="your_information">
+
+
+
+
+
+
+                        <!-- <div>
+            <div class="input-field">
+              <input id="first_name" type="text" class="validate">
+              <label for="first_name" class="">Name</label>
+            </div>
+          </div>
+          <div class="input-field">
+            <input id="email" type="email">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field">
+            <input id="telephone" type="text" class="validate">
+            <label for="telephone">Telephone</label>
+          </div>
+          <div class="input-field">
+            <input id="city" type="text" class="validate">
+            <label for="city">City</label>
+          </div>
+          
+          <p class="remember">
+            <input type="checkbox" id="test5">
+            <label for="test5">This is an awesome checkbox</label>
+          </p>
+      
+          <a class="waves-effect waves-light btn-large primary-color block" href="index.html">Send</a>
+        
+        
+        
+         -->
+
+
+
+                        <h3>Your Information</h3>
                         <p>
-                            <input type="checkbox" id="loyalty_member" value="loyalty_member">
-                            <label for="">Are you a loyalty member?</label>
+                            <b>Please fill out the information below. Fields marked with an asterisk* are required.</b>
                         </p>
+                        <p>Family Farm & Home will never share, rent or sell your personal information.</p>
+                        <div class="input-field">
+                            <input id="email" type="text" class="validate" placeholder="Your Email">
+                        </div>
+                        <div class="input-field">
+                            <input id="first_name" type="text" class="validate" placeholder="First Name">
+                        </div>
+                        <div class="input-field">
+                            <input id="last_name" type="text" class="validate" placeholder="Last Name">
+                        </div>
+                        <div class="input-field">
+                            <input id="zip_code" type="text" class="validate" placeholder="Zip">
+                        </div>
+                        <div class="input-field">
+                            <select id="store_location" class="browser-default">
+                                <option value="0" selected="selected">Store Location</option>*
+                            </select>
+                        </div>
+                        <div class="input-field custom-check">
+                            <p>
+                                <input type="checkbox" id="loyalty_member" value="loyalty_member">
+                                <label for="loyalty_member">Are you a loyalty member?</label>
+                            </p>
+                        </div>
+                        <div class="input-field">
+                            <input id="phone_number" type="text" class="validate" placeholder="() ### - ####">
+                        </div>
+                        <div class="input-field">
+                            <input id="mobile_number" type="text" class="validate" placeholder="() ### - ####">
+                        </div>
+                        <div class="input-field">
+                            <select id="birth_month" class="browser-default">
+                                <option value="0" selected="selected">Birth Month</option>
+                                <option value="january">January</option>
+                                <option value="february">February</option>
+                                <option value="march">March</option>
+                                <option value="april">April</option>
+                                <option value="may">May</option>
+                                <option value="june">June</option>
+                                <option value="july">July</option>
+                                <option value="august">August</option>
+                                <option value="september">September</option>
+                                <option value="october">October</option>
+                                <option value="november">November</option>
+                                <option value="december">December</option>
+                            </select>
+                        </div>
+                        <div class="input-field" id="gender-section">
+                            <p>
+                                <input type="radio" name="gender" value="male" id="male">
+                                <label for="male">Male</label>
+                            </p>
+
+                            <p>
+                                <input type="radio" name="gender" value="female" id="female">
+                                <label for="female">Female</label>
+                            </p>
+                        </div>
+                        <div class="input-field" id="opt-section">
+                            <p>
+                                <input type="radio" name="opt" value="in" id="optin">
+                                <label for="optin">Opt In</label>
+                            </p>
+
+                            <p>
+                                <input type="radio" name="opt" value="out" id="optout">
+                                <label for="optout">Opt Out</label>
+                            </p>
+                        </div>
                     </div>
-                    <div class="input-field">
-                        <input id="phone_number" type="text" class="validate" placeholder="() ### - ####">
-                    </div>
-                    <div class="input-field">
-                        <input id="mobile_number" type="text" class="validate" placeholder="() ### - ####">
-                    </div>
-                    <div class="input-field">
-                        <select id="birth_month" class="browser-default">
-                            <option value="0" selected="selected">Birth Month</option>
-                            <option value="january">January</option>
-                            <option value="february">February</option>
-                            <option value="march">March</option>
-                            <option value="april">April</option>
-                            <option value="may">May</option>
-                            <option value="june">June</option>
-                            <option value="july">July</option>
-                            <option value="august">August</option>
-                            <option value="september">September</option>
-                            <option value="october">October</option>
-                            <option value="november">November</option>
-                            <option value="december">December</option>
-                        </select>
-                    </div>
-                    <div class="input-field" id="gender-section">
+                    <div class="your_interests">
+                        <label>
+                            <b>YOUR INTERESTS</b>
+                        </label>
                         <p>
-                            <input type="radio" name="gender" value="male">
-                            <label for="">Male</label>
+                            <b>Help us send you relevant information by telling us what you’re interested in.</b>
                         </p>
-                         
-                        <p>
-                            <input type="radio" name="gender" value="female"> 
-                            <label for="">Female</label>
-                        </p>
+                        <p>Select as many as you like. At least one selection is required.*</p>
+                        <label>Animals</label>
+                        <div id="interests-animals" class="input-field"></div>
+                        <label>Interests & Hobbies</label>
+                        <div id="interests-hobbies" class="input-field"></div>
                     </div>
-                    <div class="input-field" id="opt-section">
-                        <p>
-                            <input type="radio" name="opt" value="in">
-                            <label for="">Opt In</label>
-                        </p>
-                        
-                        <p>
-                            <input type="radio" name="opt" value="out">
-                            <label for="">Opt Out</label>
-                        </p>
-                    </div>
-                </div>
-                <div class="your_interests">
-                    <label><b>YOUR INTERESTS</b></label>
-                    <p><b>Help us send you relevant information by telling us what you’re interested in.</b></p>
-                    <p>Select as many as you like. At least one selection is required.*</p>
-                    <label>Animals</label>
-                    <div id="interests-animals" class="input-field"></div>
-                    <label>Interests & Hobbies</label>
-                    <div id="interests-hobbies" class="input-field"></div>
-                </div>
-            </form>
-            <button class="waves-effect waves-light btn primary-color" onclick="saveSubscription();">Submit</button>
+                </form>
+                <button class="waves-effect waves-light btn-large primary-color block" onclick="saveSubscription();">Submit</button>
+            </div>
         </div>
+        <!-- End of Page Contents -->
+
+        <!-- Sidebars -->
+        <ul id="slide-out-left" class="side-nav collapsible">
+            <li class="sidenav-avatar bg-material">
+                <div class="opacity-overlay-gradient"></div>
+            </li>
+            <li>
+                <a href="index.html" class="waves-effect">
+                    <i class="ion-android-home"></i>Welcome</a>
+            </li>
+            <li>
+                <a href="stores-search.html" class="waves-effect">
+                    <i class="ion-android-map"></i>Store Locations</a>
+            </li>
+            <li>
+                <a href="special-offers.html" class="waves-effect">
+                    <i class="ion-star"></i>Special Offers</a>
+            </li>
+            <li>
+                <a href="stores-circulars.html" class="waves-effect">
+                    <i class="ion-android-document"></i>Store Circulars</a>
+            </li>
+            <li>
+                <a href="rewards-cards.html" class="waves-effect">
+                    <i class="ion-card"></i>Homegrown Rewards</a>
+            </li>
+            <li>
+                <a href="newsletter.html" class="waves-effect">
+                    <i class="ion-document-text"></i>Newsletter</a>
+            </li>
+            <li>
+                <a href="notifications.html" class="waves-effect">
+                    <i class="ion-android-notifications"></i>Notifications</a>
+            </li>
+            <!-- <li><a href="website-links.html" class="waves-effect"><i class="ion-link"></i>Website Links</a></li> -->
+            <li>
+                <a href="privacy-policy.html" class="waves-effect">
+                    <i class="ion-information-circled"></i>Privacy Policy</a>
+            </li>
+            <li id="social-media-icons">
+                <a href="https://www.facebook.com/familyfarmandhome" style="float:left">
+                    <i class="ion-social-facebook"></i>
+                </a>
+                <a href="https://twitter.com/familyfarmhome" style="float:left">
+                    <i class="ion-social-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/familyfarmandhome/" style="float:left">
+                    <i class="ion-social-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/family-farm-&-home" style="float:left">
+                    <i class="ion-social-linkedin"></i>
+                </a>
+            </li>
+        </ul>
     </div>
-    <!-- End of Page Contents -->
+    <!-- End of Main Container -->
 
-    <!-- Sidebars -->
-    <ul id="slide-out-left" class="side-nav collapsible">
-        <li class="sidenav-avatar bg-material">
-            <div class="opacity-overlay-gradient"></div>
-        </li>
-        <li><a href="index.html" class="waves-effect"><i class="ion-android-home"></i>Welcome</a></li>
-        <li><a href="stores-search.html" class="waves-effect"><i class="ion-android-map"></i>Store Locations</a></li>
-        <li><a href="special-offers.html" class="waves-effect"><i class="ion-star"></i>Special Offers</a></li>
-        <li><a href="stores-circulars.html" class="waves-effect"><i class="ion-android-document"></i>Store Circulars</a></li>
-        <li><a href="rewards-cards.html" class="waves-effect"><i class="ion-card"></i>Homegrown Rewards</a></li>
-        <li><a href="newsletter.html" class="waves-effect"><i class="ion-document-text"></i>Newsletter</a></li>
-        <li><a href="notifications.html" class="waves-effect"><i class="ion-android-notifications"></i>Notifications</a></li>
-        <!-- <li><a href="website-links.html" class="waves-effect"><i class="ion-link"></i>Website Links</a></li> -->
-        <li><a href="privacy-policy.html" class="waves-effect"><i class="ion-information-circled"></i>Privacy Policy</a></li>
-        <li id="social-media-icons"><a href="https://www.facebook.com/familyfarmandhome" style="float:left"><i class="ion-social-facebook"></i></a><a href="https://twitter.com/familyfarmhome" style="float:left"><i class="ion-social-twitter"></i></a><a href="https://www.instagram.com/familyfarmandhome/" style="float:left"><i class="ion-social-instagram"></i></a><a href="https://www.linkedin.com/company/family-farm-&-home" style="float:left"><i class="ion-social-linkedin"></i></a></li>
-    </ul>
-</div>
-<!-- End of Main Container -->
-
-<!-- Scripts -->
-<script type="text/javascript" src="cordova.js"></script>
-<script src="js/vendor/jquery-2.1.0.min.js"></script>
-<script src="js/helper.js"></script>
-<script src="js/vendor/HeadsUp.js"></script>
-<script src="js/vendor/chart.min.js"></script>
-<script src="js/vendor/jquery.mixitup.min.js"></script>
-<script src="js/vendor/jquery.swipebox.min.js"></script>
-<script src="js/vendor/masonry.min.js"></script>
-<script src="js/vendor/swiper.min.js"></script>
-<script src="js/vendor/materialize.min.js"></script>
-<script src="js/main.js"></script>
-<script type="text/javascript" src="js/newsletter.js"></script>
+    <!-- Scripts -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/vendor/jquery-2.1.0.min.js"></script>
+    <script src="js/helper.js"></script>
+    <script src="js/vendor/HeadsUp.js"></script>
+    <script src="js/vendor/chart.min.js"></script>
+    <script src="js/vendor/jquery.mixitup.min.js"></script>
+    <script src="js/vendor/jquery.swipebox.min.js"></script>
+    <script src="js/vendor/masonry.min.js"></script>
+    <script src="js/vendor/swiper.min.js"></script>
+    <script src="js/vendor/materialize.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/newsletter.js"></script>
 </body>
+
 </html>
