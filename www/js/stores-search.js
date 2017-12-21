@@ -19,31 +19,31 @@ function initializeMap(places) {
     var center;
     navigator.geolocation.getCurrentPosition(function (position) {
         currentLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lat: 41.850,// position.coords.latitude,
+            lng: -87.650// position.coords.longitude
         };
         center = new google.maps.LatLng(currentLocation.lat, currentLocation.lng);
-   
+
         map = new google.maps.Map(document.getElementById('map'), {
             center: center,
             zoom: 5
         });
-    
+
         service = new google.maps.places.PlacesService(map);
-    
+
         places.forEach(function (p) {
             var placeLocation = new google.maps.LatLng(p.latitude, p.longitude);
             var marker = new google.maps.Marker({
                 map: map,
                 position: placeLocation
             });
-    
+
             var markerObj = {
                 'marker': marker,
                 'zip': p.zip
             };
             markers.push(markerObj);
-    
+
             google.maps.event.addListener(marker, 'click', function () {
                 getPlaceDetails(p.place_id, this);
             });
@@ -53,8 +53,8 @@ function initializeMap(places) {
     },
         { enableHighAccuracy: true }
     );
-     
-   
+
+
 }
 
 function callbackNearby(results, status) {
@@ -66,7 +66,7 @@ function callbackNearby(results, status) {
                     map: map,
                     position: placeLocation
                 });
-                initMap(placeLocation)
+                // initMap(placeLocation)
                 var markerObj = {
                     'marker': marker
                 };
@@ -85,7 +85,8 @@ function getPlaceDetails(placeId, objMarker) {
         placeId: placeId
     }, function (extendedPlace, statusIn) {
         if (statusIn === google.maps.places.PlacesServiceStatus.OK) {
-
+            var dest = { lat: extendedPlace.geometry.location.lat(), lng: extendedPlace.geometry.location.lng() }
+            console.log('coordinates', dest)
             var photos = extendedPlace.photos;
             var photo = null;
             if (photos) {
@@ -97,17 +98,17 @@ function getPlaceDetails(placeId, objMarker) {
                 var address = addressComp.replace(', <span class="locality"', '<br> <span class="locality"');
 
                 // TODO: NEED TO FIGURE OUT HOW TO MAKE IT SO THAT IT SHOWS COMPLETE STORE INFORMATION WHEN CLICKING ON POPUP's MORE INFORMATION LINK OR PHOTO
-                infowindow.setContent('<div class="store-location-popup"><div class="popup-image"><img src="' + photo + '" alt="Family Farm & Home"></div><div class="popup-content"><p class="popup-title">' + extendedPlace.name + '</p><p class="popup-address">' + address + '</p><p><a onclick="showStoreInformation(\'' + extendedPlace.place_id + '\')">More Information</a></p></div></div>'
+                infowindow.setContent('<div class="store-location-popup"><div class="popup-image"><img src="' + photo + '" alt="Family Farm & Home"></div><div class="popup-content"><p class="popup-title">' + extendedPlace.name + '</p><p class="popup-address">' + address + '</p><p><a onclick="showStoreInformation(\'' + extendedPlace.place_id + '\')">More Information</a></p></div></div><div class="destination"><button onclick="initMap(' + dest.lat+','+dest.lng + ')">Set destination</button></div>'
                 );
+                console.log(extendedPlace)
             } else {
+                console.log(extendedPlace)
                 infowindow.setContent('<div><strong>' + extendedPlace.name + '</strong><br>' +
-                    extendedPlace.adr_address + '</div>'//+'<button></button>'
+                    extendedPlace.adr_address + '</div><div class="destination"><button onclick="initMap(' + dest.lat+','+dest.lng + ')">Set destination</button></div>'//+'<button></button>'
                 );
             }
 
-            infowindow.open(map, objMarker)//.on('click',function(){
-            //     confirm('Do you want to choose this destination point?')
-            // });
+            infowindow.open(map, objMarker)
         } else {
             console.log(statusIn);
         }
@@ -142,8 +143,8 @@ function searchByZipCode() {
 function searchByNearby() {
     navigator.geolocation.getCurrentPosition(function (position) {
         currentLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lat: 41.850,// position.coords.latitude,
+            lng: -87.650// position.coords.longitude
         };
         clearMarkers();
         var request = {
@@ -180,11 +181,16 @@ function setMapOnAll(map) {
 function clearMarkers() {
     setMapOnAll(null);
 }
-function initMap(finishPoint) {
+function initMap(lat, lng) {
+    console.log('start find destination')
+    finishPoint = { 
+        lat: lat,
+        lng: lng 
+    }
     navigator.geolocation.getCurrentPosition(function (position) {
         var currentLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lat: 41.850,// position.coords.latitude,
+            lng: -87.650// position.coords.longitude
         };
         clearMarkers();
         //Center map to current location.
@@ -217,6 +223,7 @@ function initMap(finishPoint) {
     var directionsService = new google.maps.DirectionsService();
     directionsService.route(request, function (response, status) {
         if (status == 'OK') {
+            directionsDisplay.set('directions', null);
             // Display the route on the map.
             directionsDisplay.setDirections(response);
         }
