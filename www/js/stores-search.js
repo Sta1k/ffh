@@ -19,8 +19,8 @@ function initializeMap(places) {
     var center;
     navigator.geolocation.getCurrentPosition(function (position) {
         currentLocation = {
-            lat: 41.850,// position.coords.latitude,
-            lng: -87.650// position.coords.longitude
+            lat:  position.coords.latitude,
+            lng:  position.coords.longitude
         };
         center = new google.maps.LatLng(currentLocation.lat, currentLocation.lng);
 
@@ -143,8 +143,8 @@ function searchByZipCode() {
 function searchByNearby() {
     navigator.geolocation.getCurrentPosition(function (position) {
         currentLocation = {
-            lat: 41.850,// position.coords.latitude,
-            lng: -87.650// position.coords.longitude
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
         };
         clearMarkers();
         var request = {
@@ -189,8 +189,8 @@ function initMap(lat, lng) {
     }
     navigator.geolocation.getCurrentPosition(function (position) {
         var currentLocation = {
-            lat: 41.850,// position.coords.latitude,
-            lng: -87.650// position.coords.longitude
+            lat:  position.coords.latitude,
+            lng:  position.coords.longitude
         };
         clearMarkers();
         //Center map to current location.
