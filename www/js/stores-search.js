@@ -182,6 +182,8 @@ function clearMarkers() {
     setMapOnAll(null);
 }
 function initMap(lat, lng) {
+    $('#mapBar, #map').show();
+    $('#storeInformation').hide();
     console.log('start find destination')
     finishPoint = { 
         lat: lat,
@@ -256,6 +258,7 @@ function showStoreInformation(place_id) {
     }, function (extendedPlace, statusIn) {
         if (statusIn === google.maps.places.PlacesServiceStatus.OK) {
             $('#mapBar, #map').hide();
+            var dest = { lat: extendedPlace.geometry.location.lat(), lng: extendedPlace.geometry.location.lng() }
             var photos = extendedPlace.photos;
             var photo = null;
             if (photos) {
@@ -276,6 +279,7 @@ function showStoreInformation(place_id) {
             // TODO: NEED TO ADD PHONE NUMBER CLICKABILITY ---v
 
             storeInformation += '<a href="tel:' + extendedPlace.formatted_phone_number.replace(/[^0-9]/ig, '') + '" class="yellow-button-styles chunk center-button">' + extendedPlace.formatted_phone_number + '</a>';
+            storeInformation += '<div class="destination"><button onclick="initMap(' + dest.lat+','+dest.lng + ')">Set destination</button></div>'
             storeInformation += '<p class="chunk ffh-loc-address">' + extendedPlace.formatted_address + '</p>';
             storeInformation += '<div class="white-box">';
             storeInformation += '<ul class="store-hours">';

@@ -22,7 +22,7 @@ function initialize() {
 }
 
 function updateCardImageDiv( barcode ) {
-    var img = 'img/logo.png';
+    var img = 'img/barcode.png';
     var card = "";
 
     if( barcode ) {
