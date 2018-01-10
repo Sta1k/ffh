@@ -19,8 +19,8 @@ function initializeMap(places) {
     var center;
     navigator.geolocation.getCurrentPosition(function (position) {
         currentLocation = {
-            lat:  position.coords.latitude,
-            lng:  position.coords.longitude
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
         };
         center = new google.maps.LatLng(currentLocation.lat, currentLocation.lng);
 
@@ -98,13 +98,13 @@ function getPlaceDetails(placeId, objMarker) {
                 var address = addressComp.replace(', <span class="locality"', '<br> <span class="locality"');
 
                 // TODO: NEED TO FIGURE OUT HOW TO MAKE IT SO THAT IT SHOWS COMPLETE STORE INFORMATION WHEN CLICKING ON POPUP's MORE INFORMATION LINK OR PHOTO
-                infowindow.setContent('<div class="store-location-popup"><div class="popup-image"><img src="' + photo + '" alt="Family Farm & Home"></div><div class="popup-content"><p class="popup-title">' + extendedPlace.name + '</p><p class="popup-address">' + address + '</p><p><a onclick="showStoreInformation(\'' + extendedPlace.place_id + '\')">More Information</a></p></div></div><div class="destination"><button onclick="initMap(' + dest.lat+','+dest.lng + ')">Set destination</button></div>'
+                infowindow.setContent('<div class="store-location-popup"><div class="popup-image"><img src="' + photo + '" alt="Family Farm & Home"></div><div class="popup-content"><p class="popup-title">' + extendedPlace.name + '</p><p class="popup-address">' + address + '</p><p><a onclick="showStoreInformation(\'' + extendedPlace.place_id + '\')">More Information</a></p></div></div><div class="destination"><button onclick="initMap(' + dest.lat + ',' + dest.lng + ')">Set destination</button></div>'
                 );
                 console.log(extendedPlace)
             } else {
                 console.log(extendedPlace)
                 infowindow.setContent('<div><strong>' + extendedPlace.name + '</strong><br>' +
-                    extendedPlace.adr_address + '</div><div class="destination"><button onclick="initMap(' + dest.lat+','+dest.lng + ')">Set destination</button></div>'//+'<button></button>'
+                    extendedPlace.adr_address + '</div><div class="destination"><button onclick="initMap(' + dest.lat + ',' + dest.lng + ')">Set destination</button></div>'//+'<button></button>'
                 );
             }
 
@@ -182,54 +182,57 @@ function clearMarkers() {
     setMapOnAll(null);
 }
 function initMap(lat, lng) {
-    $('#mapBar, #map').show();
-    $('#storeInformation').hide();
+    // $('#mapBar, #map').show();
+    // $('#storeInformation').hide();
     console.log('start find destination')
-    finishPoint = { 
+    finishPoint = {
         lat: lat,
-        lng: lng 
+        lng: lng
     }
     navigator.geolocation.getCurrentPosition(function (position) {
         var currentLocation = {
-            lat:  position.coords.latitude,
-            lng:  position.coords.longitude
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
         };
-        clearMarkers();
-        //Center map to current location.
-        map.setCenter(currentLocation);
-        //Add marker to current location.
-        new google.maps.Marker({
-            map: map,
-            position: currentLocation
+        // clearMarkers();
+        // //Center map to current location.
+        // map.setCenter(currentLocation);
+        // //Add marker to current location.
+        // new google.maps.Marker({
+        //     map: map,
+        //     position: currentLocation
 
-        });
+        // });
 
+        launchnavigator.navigate([finishPoint.lat, finishPoint.lng])//, {
+            // start: `${currentLocation.lat},${currentLocation.lng}`
+        // });
     }, function () {
         alert('Could not locate current location');
     },
         { enableHighAccuracy: true }
     );
 
-    var directionsDisplay = new google.maps.DirectionsRenderer({
-        map: map
-    });
+    // var directionsDisplay = new google.maps.DirectionsRenderer({
+    //     map: map
+    // });
 
-    // Set destination, origin and travel mode.
-    var request = {
-        destination: finishPoint,
-        origin: currentLocation,
-        travelMode: 'DRIVING'
-    };
+    // // Set destination, origin and travel mode.
+    // var request = {
+    //     destination: finishPoint,
+    //     origin: currentLocation,
+    //     travelMode: 'DRIVING'
+    // };
 
-    // Pass the directions request to the directions service.
-    var directionsService = new google.maps.DirectionsService();
-    directionsService.route(request, function (response, status) {
-        if (status == 'OK') {
-            directionsDisplay.set('directions', null);
-            // Display the route on the map.
-            directionsDisplay.setDirections(response);
-        }
-    });
+    // // Pass the directions request to the directions service.
+    // var directionsService = new google.maps.DirectionsService();
+    // directionsService.route(request, function (response, status) {
+    //     if (status == 'OK') {
+    //         directionsDisplay.set('directions', null);
+    //         // Display the route on the map.
+    //         directionsDisplay.setDirections(response);
+    //     }
+    // });
 }
 
 function showStoreInformation(place_id) {
@@ -279,7 +282,7 @@ function showStoreInformation(place_id) {
             // TODO: NEED TO ADD PHONE NUMBER CLICKABILITY ---v
 
             storeInformation += '<a href="tel:' + extendedPlace.formatted_phone_number.replace(/[^0-9]/ig, '') + '" class="yellow-button-styles chunk center-button">' + extendedPlace.formatted_phone_number + '</a>';
-            storeInformation += '<div class="destination"><button onclick="initMap(' + dest.lat+','+dest.lng + ')">Set destination</button></div>'
+            storeInformation += '<div class="destination"><button onclick="initMap(' + dest.lat + ',' + dest.lng + ')">Set destination</button></div>'
             storeInformation += '<p class="chunk ffh-loc-address">' + extendedPlace.formatted_address + '</p>';
             storeInformation += '<div class="white-box">';
             storeInformation += '<ul class="store-hours">';
