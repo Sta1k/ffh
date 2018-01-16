@@ -1,3 +1,15 @@
+function alertDismissed() {
+    // do something
+}
+
+var alertMessage = function (message) {
+    return navigator.notification.alert(
+        message,  // message
+        alertDismissed,         // callback
+        'Family Farm & Home',            // title
+        'Ok'                  // buttonName
+    )
+};
 document.addEventListener("deviceready", onDeviceReady, false);
 var subscriptionForm = document.getElementById('subscriptionForm');
 var storesPicker = document.getElementById('store_location');
@@ -60,7 +72,7 @@ function saveSubscription() {
     }
 
     if( !optVal ) {
-        alert("You must select an option for OPT field!");
+        alertMessage("You must select an option for OPT field!");
         return false;
     }
 
@@ -101,7 +113,7 @@ function saveSubscription() {
             var last_name = document.getElementById('last_name').value;
             var loyalty_member = document.getElementById('loyalty_member');
             var phone_number = document.getElementById('phone_number').value;
-            var mobile_number = document.getElementById('mobile_number').value;
+           
             var birth_month = document.getElementById('birth_month');
             var gender = document.getElementsByName('gender');
 
@@ -128,7 +140,7 @@ function saveSubscription() {
             data.append('last_name', last_name);
             data.append('birth_month', birth_month.options[birth_month.selectedIndex].value);
             data.append('phone_number', phone_number);
-            data.append('mobile_number', mobile_number);
+          
 
             var xhr = new XMLHttpRequest();
             xhr.open( "POST", "https://mapp.familyfarmandhome.com/wp-content/plugins/ffhapi/ffhapi.php?action=subscribe-device" );
@@ -136,15 +148,15 @@ function saveSubscription() {
                 var apiResponse = JSON.parse( xhr.responseText );
                 console.log( apiResponse );
                 if( apiResponse.success ) {
-                    alert("Subscribed successfully!");
+                    alertMessage("Subscribed successfully!");
                 } else {
-                    alert("Error occurred while subscribing. Try again.");
+                    alertMessage("Error occurred while subscribing. Try again.");
                 }
             };
             xhr.send( data );
             //----------------------------------------------------------------------------------------------------------------------------------------
         } else {
-            alert( "You must fill the mandatory fields to make the subscription!" );
+            alertMessage( "You must fill the mandatory fields to make the subscription!" );
         }
     } else if( optVal === 'out' ) {
         var data2 = new FormData();
@@ -154,14 +166,14 @@ function saveSubscription() {
         xhr2.onload = function() {
             var apiResponse = JSON.parse( xhr2.responseText );
             if( apiResponse.success ) {
-                alert("Removed subscription successfully!");
+                alertMessage("Removed subscription successfully!");
                 subscriptionForm.reset();
             } else {
                 var message = "Error occurred while removing subscription. Try again.";
                 if( apiResponse.message ) {
                     message = apiResponse.message;
                 }
-                alert( message );
+                alertMessage( message );
             }
         };
         xhr2.send( data2 );

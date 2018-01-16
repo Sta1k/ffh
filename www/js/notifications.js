@@ -105,11 +105,6 @@ function getIds() {
     });
 }
 
-function sendTags() {
-    window.plugins.OneSignal.sendTags({PhoneGapKey: "PhoneGapValue", key2: "value2"});
-    // alert("Tags Sent");
-}
-
 function getTags() {
     window.plugins.OneSignal.getTags(function (tags) {
         // alert('Tags Received: ' + JSON.stringify(tags));

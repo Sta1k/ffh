@@ -1,3 +1,15 @@
+function alertDismissed() {
+    // do something
+}
+
+var alertMessage = function (message) {
+    return navigator.notification.alert(
+        message,  // message
+        alertDismissed,         // callback
+        'Family Farm & Home',            // title
+        'Ok'                  // buttonName
+    )
+};
 document.addEventListener("deviceready", onDeviceReady, false);
 var cardImageDiv = document.getElementById('rewards-card');
 var deviceID = null;
@@ -49,7 +61,7 @@ function changeCard() {
             saveRewardCard( result.text );
         },
         function (error) {
-            alert("Scanning failed: " + error);
+            alertMessage("Scanning failed: " + error);
         },
         {
             preferFrontCamera : false, // iOS and Android
@@ -72,9 +84,9 @@ function saveRewardCard( barCodeString ) {
     xhr.onload = function() {
         var apiResponse = JSON.parse( xhr.responseText );
         if( apiResponse ) {
-            alert("Homegrown Rewards saved succesfully!");
+            alertMessage("Homegrown Rewards saved succesfully!");
         } else {
-            alert("An error occurred while tempting to save your Homegrown Rewards. Please try again.");
+            alertMessage("An error occurred while tempting to save your Homegrown Rewards. Please try again.");
         }
     };
     xhr.send();

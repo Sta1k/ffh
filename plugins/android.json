@@ -72,10 +72,16 @@
     },
     "phonegap-plugin-barcodescanner": {
       "PACKAGE_NAME": "com.thrivepop.ffhapp"
+    },
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+      "PACKAGE_NAME": "com.thrivepop.ffhapp"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.thrivepop.ffhapp"
+    },
+    "cordova-plugin-actionsheet": {
       "PACKAGE_NAME": "com.thrivepop.ffhapp"
     }
   }
