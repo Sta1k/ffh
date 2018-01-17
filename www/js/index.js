@@ -81,7 +81,7 @@ function setLocalStore() {
             // oneSignal.getTags(function(tags){
             //     console.log(tags)
             // })
-            window.plugins.OneSignal.sendTag("loc", store.toLowerCase());
+            window.plugins.OneSignal.sendTags({loc: store.toLowerCase(),default:'all stores'});
             alertMessage("Local Store has been set successfully!");
         }
     };
