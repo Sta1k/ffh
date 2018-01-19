@@ -13,6 +13,7 @@ var alertMessage = function (message) {
 document.addEventListener("deviceready", onDeviceReady, false);
 var deviceID = null;
 function onDeviceReady() {
+    deviceID = device.uuid;
     initialize();
 }
 
@@ -206,15 +207,7 @@ function initMap(lat, lng) {
             lat: position.coords.latitude,
             lng: position.coords.longitude
         };
-        // clearMarkers();
-        // //Center map to current location.
-        // map.setCenter(currentLocation);
-        // //Add marker to current location.
-        // new google.maps.Marker({
-        //     map: map,
-        //     position: currentLocation
 
-        // });
 
         launchnavigator.navigate([finishPoint.lat, finishPoint.lng])//, {
             // start: `${currentLocation.lat},${currentLocation.lng}`
@@ -225,26 +218,6 @@ function initMap(lat, lng) {
         { enableHighAccuracy: true }
     );
 
-    // var directionsDisplay = new google.maps.DirectionsRenderer({
-    //     map: map
-    // });
-
-    // // Set destination, origin and travel mode.
-    // var request = {
-    //     destination: finishPoint,
-    //     origin: currentLocation,
-    //     travelMode: 'DRIVING'
-    // };
-
-    // // Pass the directions request to the directions service.
-    // var directionsService = new google.maps.DirectionsService();
-    // directionsService.route(request, function (response, status) {
-    //     if (status == 'OK') {
-    //         directionsDisplay.set('directions', null);
-    //         // Display the route on the map.
-    //         directionsDisplay.setDirections(response);
-    //     }
-    // });
 }
 
 function showStoreInformation(place_id) {
