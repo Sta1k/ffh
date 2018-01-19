@@ -1,7 +1,7 @@
 {
-  "name": "com.thrivepop.ffhapp",
+  "name": "com.familyfarmandhome.mobileappv2",
   "version": "1.0.0",
-  "displayName": "ffh app",
+  "displayName": "Family Farm & Home",
   "cordova": {
     "platforms": [
       "browser",
