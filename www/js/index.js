@@ -16,13 +16,14 @@ function initialize() {
         .startInit("a57b93b0-3c10-4eae-9edf-bf9d06b32a9c")
         .handleNotificationReceived(function (jsonData) {
          
-            console.log('Did I receive a notification: ' + JSON.stringify(jsonData));
+            console.log('Received notification: ', jsonData.notification);
         })
         .handleNotificationOpened(function (jsonData) {
-          
-            console.log('didOpenRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+           
+        // window.location.href=jsonData.notification.payload.additionalData.type+'s.html'
+            // console.log('Opened notification: ',  window.location.href);
         })
-        .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.InAppAlert)
+        // .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.InAppAlert)
         .iOSSettings(iosSettings)
         .endInit();
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

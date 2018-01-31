@@ -224,7 +224,7 @@ function showStoreInformation(place_id) {
     clearMarkers();
     var storeInformationDiv = document.getElementById('storeInformation');
     storeInformationDiv.innerHTML = "";
-    var storeInformation = '<a href="/stores-search.html" class="chunk yellow-button-styles center-button">Go Back</a><';
+    var storeInformation = '<a href="stores-search.html" class="chunk yellow-button-styles center-button">Go Back</a>';
     if (place_id == '' || place_id == null) {
         var selectedStorePlaceId = storesPicker.options[storesPicker.selectedIndex].value;
     } else {
